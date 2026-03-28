@@ -5,16 +5,17 @@ exclude: 'yes'
 ---
 
 /* TEAM */
-Developer & Designer: Josh Gerdes
-Twitter: @joshgerdes
-Site: http://joshgerdes.com
-Location: Minneapolis, MN, USA
+Developer: Vitaly Shatskikh
+Github: @vitalyshatskikh
+Location: Moscow, Russia
 						
 /* THANKS */
-Name: Dale Anthony
+Name: Josh Gerdes
+Twitter: @joshgerdes
+Location: Minneapolis, MN, USA
 
 /* SITE */
 Last update: {{ site.time | date: "%Y/%m/%d" }}
 Standards: HTML5, CSS3
 Components: Jekyll
-Software: Sublime Text, Photoshop
+Software: JetBrains IDE

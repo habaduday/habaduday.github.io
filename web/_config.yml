@@ -1,11 +1,11 @@
 # Site settings
 title: Habaduday
 description: 'What is "habaduday" - who knows?'
+suggestion: 'Suggest: what is habaduday?'
 url: 'https://habadu.day'
 baseurl: ''
 # google_analytics: 'UA-XXXXXX-X'
 # disqus_shortname: 'your-disqus-name'
-# disable_landing_page: true
 
 author:
   name: 'Habaduday'

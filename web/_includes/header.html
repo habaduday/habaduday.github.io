@@ -3,7 +3,7 @@
   <i class="icon icon-x-circle btn-mobile-close__icon hidden"></i>
 </span>
 
-<header class="panel-cover {% if site.disable_landing_page %}panel-cover--collapsed{% endif %}"
+<header class="panel-cover"
   style="background-image: url({{ site.baseurl }}/images/cover.jpg)">
   <div class="panel-main">
 
@@ -15,12 +15,29 @@
         </a>
         <hr class="panel-cover__divider">
         <p class="panel-cover__description">{{ site.description }}</p>
+        <input class="panel-cover__description hidden" type="text" placeholder="{{ site.suggestion }}"/>
+
+        <div class="navigation-wrapper--landing landing no-wide-screen">
+          <hr class="panel-cover__divider">
+          <nav class="cover-navigation--landing">
+            <ul class="navigation">
+              <li class="navigation__item"><a href="#" title="send {{ site.title }} suggestion"
+                  class="suggestion-send-button hidden">Send</a></li>
+              <li class="navigation__item"><a href="#" title="link to {{ site.title }} suggestion quiz"
+                  class="suggestion-button">Suggest</a></li>
+            </ul>
+          </nav>
+        </div>
+
         <hr class="panel-cover__divider panel-cover__divider--secondary">
 
         <div class="navigation-wrapper">
-
           <nav class="cover-navigation cover-navigation--primary">
             <ul class="navigation">
+              <li class="navigation__item"><a href="#" title="send {{ site.title }} suggestion"
+                  class="suggestion-send-button no-mobile-screen hidden">Send</a></li>
+              <li class="navigation__item"><a href="#" title="link to {{ site.title }} suggestion quiz"
+                  class="suggestion-button no-mobile-screen">Suggest</a></li>
               <li class="navigation__item"><a href="{{ site.baseurl }}/#blog" title="link to {{ site.title }} blog"
                   class="blog-button">Blog</a></li>
             </ul>
