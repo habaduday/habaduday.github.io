@@ -5,11 +5,11 @@ exclude: 'yes'
 ---
 
 class Intervals {
-    constructor() {
+    constructor(api) {
         this.sendInterval = null;
         this.fetchInterval = null;
         this.isSending = false;
-        this.api = new API();
+        this.api = api;
     }
 
     start(intervalMs = 30000) {

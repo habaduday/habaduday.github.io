@@ -3,7 +3,7 @@ layout: default
 robots: noindex
 ---
 
-<div class="main-post-list">
+<div class="main-post-list content-item">
 
   <ol class="post-list">
     {% for post in paginator.posts %}
@@ -27,4 +27,8 @@ robots: noindex
       {% include pagination.html %}
   {% endif %}
 
+</div>
+
+<div class="suggestions-tag-cloud content-item">
+    <div>TODO</div>
 </div>

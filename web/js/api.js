@@ -5,7 +5,8 @@ exclude: 'yes'
 ---
 
 class API {
-    constructor() {
+    constructor(appId) {
+        this.appId = appId;
         this.cachedSuggestionsKey = 'cached_suggestions';
 
         const data = localStorage.getItem(this.cachedSuggestionsKey);
@@ -18,10 +19,12 @@ class API {
             };
             localStorage.setItem(this.cachedSuggestionsKey, JSON.stringify(stubData));
         }
+
+        this.logPrefix = '[API Stub ' + this.appId +']';
     }
 
     async postSuggestions(suggestionsArray) {
-        console.log('[API Stub] POST /suggestions', { suggestions: suggestionsArray });
+        console.log(this.logPrefix, 'POST /suggestions', { suggestions: suggestionsArray });
 
         // Simulate random success/failure
         await this._delay(300);
@@ -46,7 +49,7 @@ class API {
     }
 
     async fetchSuggestions(limit = 100) {
-        console.log('[API Stub] GET /suggestions?limit=' + limit);
+        console.log(this.logPrefix, 'GET /suggestions?limit=' + limit);
 
         // Simulate random success/failure
         await this._delay(300);

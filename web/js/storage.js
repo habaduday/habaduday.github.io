@@ -6,9 +6,30 @@ exclude: 'yes'
 
 class Storage {
     static KEYS = {
+        APP_ID: 'app_id',
         USER_SUGGESTIONS: 'user_suggestions',
         MAPPING: 'mapping'
     };
+
+    // ========== APP ID ==========
+
+    static keyAppId() {
+        return this.KEYS.APP_ID;
+    }
+
+    static getAppId() {
+        return localStorage.getItem(this.KEYS.APP_ID)
+    }
+
+    static setAppId(value) {
+        try {
+            localStorage.setItem(this.KEYS.APP_ID, value);
+            return true;
+        } catch (e) {
+            console.error('Failed to save app id:', e);
+            return false;
+        }
+    }
 
     // ========== USER_SUGGESTIONS ==========
 
@@ -25,9 +46,9 @@ class Storage {
         }
     }
 
-    static setUserSuggestions(suggestionsArray) {
+    static setUserSuggestions(suggestionsSet) {
         try {
-            localStorage.setItem(this.KEYS.USER_SUGGESTIONS, JSON.stringify(suggestionsArray));
+            localStorage.setItem(this.KEYS.USER_SUGGESTIONS, JSON.stringify(suggestionsSet));
             return true;
         } catch (e) {
             console.error('Failed to save user suggestions:', e);
@@ -42,6 +63,9 @@ class Storage {
     }
 
     static clearUserSuggestions() {
+        if (!this.hasSuggestions()) {
+            return true
+        }
         return this.setUserSuggestions({});
     }
 
@@ -57,6 +81,10 @@ class Storage {
         current.forEach(key => merged[key] = true);
         suggestionsArray.forEach(el => merged[el] = true);
         return this.setUserSuggestions(merged);
+    }
+
+    static hasSuggestions() {
+        return localStorage.getItem(this.KEYS.USER_SUGGESTIONS) !== null
     }
 
     // ========== MAPPING ==========
